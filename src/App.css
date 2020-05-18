@@ -11,6 +11,10 @@
   left: 10px;
   top: 5px;
 }
+.ant-checkbox-group-item .ant-checkbox+span
+{
+  display: none;
+}
 .ant-checkbox-group
 {
   position: absolute;
@@ -19,5 +23,5 @@
 }
 .ant-checkbox-wrapper
 {
-  margin-right: 78px;
+  margin-right: 120px;
 }
