@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>需求1</title>
+  <link rel="stylesheet" href="https://unpkg.com/antd@3.9.3/dist/antd.min.css">
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="./lib/babel.min.js"></script>
+  <script src="./lib/react.development.js"></script>
+  <script src="./lib/react-dom.development.js"></script>
+  <script src=" https://ant.design/components/table-cn/"></script>
+  <script type="text/babel">
+    import { Checkbox } from 'antd';
+    class PictureSelect extends React.Component {
+      constructor() {
+        super();
+        this.state = {
+          pictures: [
+          {
+            id: '1',
+            name: 'foo',
+            url: 'https://gw.alipayobjects.com/mdn/rms_d212b7/afts/img/A*LlfeSa8N0WgAAAAAAAAAAABkARQnAQ'
+          },
+          {
+            id: '2',
+            name: 'foo',
+            url: 'https://gw.alipayobjects.com/mdn/rms_d212b7/afts/img/A*LlfeSa8N0WgAAAAAAAAAAABkARQnAQ'
+          },
+          {
+            id: '3',
+            name: 'foo',
+            url: 'https://gw.alipayobjects.com/mdn/rms_d212b7/afts/img/A*LlfeSa8N0WgAAAAAAAAAAABkARQnAQ'
+          },
+          ]
+        };
+      }
+      
+      render() {
+        const { pictures } = this.state
+        return (
+          <div className="list">
+            {pictures.map(e =>
+              (<img src={e.url} />)
+            )}
+            <div className="site-checkbox-all-wrapper">
+              <Checkbox
+                indeterminate={this.state.indeterminate}
+                onChange={this.onCheckAllChange}
+                checked={this.state.checkAll}
+              >
+                Check all
+              </Checkbox>
+            </div>
+            <br />
+            <CheckboxGroup
+              options={plainOptions}
+              value={this.state.checkedList}
+              onChange={this.onChange}
+            />
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(<PictureSelect />, document.getElementById("app"));
+  </script>
+</body>
+
+</html>
